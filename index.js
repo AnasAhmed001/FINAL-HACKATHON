@@ -11,7 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: "https://mammoth-lorelei-anasahmed-90354937.koyeb.app/",
+  origin: "https://hackathon-frontend-ivory-gamma.vercel.app/",
+  methods: ["GET", "POST" , "PUT", "DELETE"],
   credentials: true,
 }));
 app.use(express.json());
