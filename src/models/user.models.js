@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema({
+  userName: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: [true, "email is required"],
@@ -11,7 +15,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "password is required"],
   },
-});
+  // profileImage: { 
+  //   type: String,
+  //   required: [true, "profileImage is required"], 
+  // },
+},
+  {
+    timestamps: true,
+  }
+);
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
